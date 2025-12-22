@@ -4,4 +4,3 @@ PyPDF2
 spacy
 sentence-transformers
 scikit-learn
-numpy
