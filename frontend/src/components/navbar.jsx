@@ -31,9 +31,9 @@ function Navbar() {
           <a className="hover:text-amber-400 transition" href="#">
             Jobs
           </a>
-          <Link className="hover:text-amber-400 transition" to="/dashboard">
+          {/*  <Link className="hover:text-amber-400 transition" to="/dashboard">
             Dashboard
-          </Link>
+          </Link>*/}
         </nav>
 
         {/* Actions */}
