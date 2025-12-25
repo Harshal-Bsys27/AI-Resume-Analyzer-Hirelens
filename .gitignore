@@ -18,3 +18,15 @@ Thumbs.db
 # Backend outputs
 output/
 *.pdf
+
+# Node.js / Frontend
+node_modules/
+dist/
+build/
+*.log
+
+# Tailwind/Jest/React
+coverage/
+.cache/
+.next/
+out/

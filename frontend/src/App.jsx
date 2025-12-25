@@ -1,4 +1,5 @@
 import { useState } from "react";
+import Navbar from "./components/navbar";
 import ResumeUpload from "./components/ResumeUpload";
 import AnalysisResult from "./components/AnalysisResult";
 
@@ -6,32 +7,39 @@ function App() {
   const [result, setResult] = useState(null);
 
   return (
-    <div className="min-h-screen bg-gray-100 font-sans">
-      {/* Navbar */}
-      <nav className="bg-white shadow-sm px-6 py-4">
-        <h1 className="text-xl font-bold text-gray-800">
-          AI Resume Analyzer (ATS Simulator)
-        </h1>
-      </nav>
+    <div className="min-h-screen bg-gradient-to-br from-gray-50 to-gray-100">
+      <Navbar />
 
-      {/* Main Dashboard */}
-      <main className="max-w-6xl mx-auto px-6 py-8 grid grid-cols-1 md:grid-cols-2 gap-8">
-        {/* Upload Section */}
-        <section className="bg-white p-6 rounded-lg shadow">
-          <h2 className="text-lg font-semibold mb-4">
-            Upload Resume
-          </h2>
-          <ResumeUpload onResult={setResult} />
-        </section>
+      {/* Hero Section */}
+      <section className="max-w-7xl mx-auto px-6 py-16 grid md:grid-cols-2 gap-12 items-center">
+        <div>
+          <h1 className="text-5xl font-bold text-gray-900 leading-tight">
+            AI-Powered <span className="text-blue-600">ATS Resume</span> Analyzer
+          </h1>
 
-        {/* Result Section */}
-        <section className="bg-white p-6 rounded-lg shadow">
-          <h2 className="text-lg font-semibold mb-4">
-            ATS Analysis Result
-          </h2>
-          <AnalysisResult data={result} />
-        </section>
-      </main>
+          <p className="mt-6 text-lg text-gray-600">
+            Simulate how real Applicant Tracking Systems scan, filter and score
+            your resume. Improve your chances before you apply.
+          </p>
+
+          <div className="mt-8 flex gap-4">
+            <button className="px-6 py-3 rounded-xl bg-blue-600 text-white font-semibold hover:bg-blue-700 transition">
+              Analyze Resume
+            </button>
+            <button className="px-6 py-3 rounded-xl border border-gray-300 text-gray-700 hover:bg-gray-100 transition">
+              Learn How ATS Works
+            </button>
+          </div>
+        </div>
+
+        {/* Upload Card */}
+        <ResumeUpload onResult={setResult} />
+      </section>
+
+      {/* Result Section */}
+      <section className="max-w-7xl mx-auto px-6 pb-16">
+        <AnalysisResult data={result} />
+      </section>
     </div>
   );
 }

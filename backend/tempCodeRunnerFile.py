@@ -28,7 +28,6 @@ def analyze():
     try:
         resume = request.files.get("resume")
         job_description = request.form.get("job_description")
-        selected_role = request.form.get("role")  # get selected role from frontend
 
         if not resume or not job_description:
             print("❌ Missing resume or job description in request")
@@ -54,7 +53,7 @@ def analyze():
             }), 400
 
         # NLP Analysis
-        analysis_result = analyze_resume(resume_text, job_description, selected_role)
+        analysis_result = analyze_resume(resume_text, job_description)
         print("Analysis result:", analysis_result)  # Log analysis result
 
         if not analysis_result or not isinstance(analysis_result, dict):

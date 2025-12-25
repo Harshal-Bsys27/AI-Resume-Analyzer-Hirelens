@@ -7,18 +7,23 @@ export async function analyzeResume(formData) {
       body: formData,
     });
 
-    // ❌ Backend error handling
+    // Handle backend error responses
     if (!response.ok) {
-      const errorText = await response.text();
-      throw new Error(errorText || "Backend error");
+      let errorJson;
+      try {
+        errorJson = await response.json();
+      } catch {
+        errorJson = { error: await response.text() };
+      }
+      return errorJson;
     }
 
-    // ✅ Successful response
+    // Successful response
     const data = await response.json();
     return data;
 
   } catch (error) {
     console.error("API ERROR:", error);
-    throw error; // important: frontend catch will handle this
+    return { error: "Network or server error" };
   }
 }
