@@ -22,25 +22,17 @@ function Navbar() {
 
         {/* Navigation */}
         <nav className="hidden md:flex items-center gap-10 text-white font-medium">
-          <a className="hover:text-amber-400 transition" href="#">
+          <Link className="hover:text-amber-400 transition" to="/">
             Home
-          </a>
-          <a className="hover:text-amber-400 transition" href="#">
-            Analyze
-          </a>
-          <a className="hover:text-amber-400 transition" href="#">
-            Jobs
-          </a>
-          {/*  <Link className="hover:text-amber-400 transition" to="/dashboard">
+          </Link>
+          <Link className="hover:text-amber-400 transition" to="/dashboard">
             Dashboard
-          </Link>*/}
+          </Link>
         </nav>
 
         {/* Actions */}
         <div className="flex items-center gap-4">
-          <button className="hidden sm:block text-white hover:text-amber-400 transition">
-            Login
-          </button>
+          {/* Login button removed */}
           <Link
             to="/get-started"
             className="px-5 py-2 rounded-xl bg-white text-amber-700 font-semibold hover:bg-amber-100 transition shadow-lg border-2 border-gray-900"

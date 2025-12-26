@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
-import Navbar from "./components/navbar";
+import Navbar from "./components/Navbar";
 import ResumeUpload from "./components/ResumeUpload";
 import AnalysisResult from "./components/AnalysisResult";
 import HowAtsWorks from "./pages/HowATSWorks";
@@ -35,6 +35,12 @@ function Home() {
               className="px-6 py-3 rounded-xl border border-purple-600 text-blue-700 hover:bg-blue-50 transition font-semibold"
             >
               Learn How ATS Works
+            </Link>
+            <Link
+              to="/dashboard"
+              className="px-6 py-3 rounded-xl border border-orange-500 text-orange-700 hover:bg-orange-50 transition font-semibold"
+            >
+              Dashboard
             </Link>
           </div>
         </div>
