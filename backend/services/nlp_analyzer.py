@@ -305,6 +305,21 @@ def analyze_resume(resume_text, jd_text, selected_role=None):
     if not recommended_keywords or not isinstance(recommended_keywords, list) or not any(recommended_keywords):
         recommended_keywords = get_role_keywords("general")
 
+
+    # --- Professional, actionable, role-specific summary ---
+    summary_lines = []
+    summary_lines.append(f"This resume was analyzed for the role of '{role_detected}'.")
+    if strengths:
+        summary_lines.append(f"Key strengths: {', '.join(strengths)}")
+    if weaknesses:
+        summary_lines.append(f"Areas to improve: {', '.join(weaknesses)}")
+    if suggestions:
+        summary_lines.append(f"Actionable next steps: {', '.join(suggestions[:3])}")
+    summary_lines.append(f"Key responsibilities for this role: {', '.join(key_responsibilities[:3])}")
+    summary_lines.append(f"Recommended keywords: {', '.join(recommended_keywords[:5])}")
+    summary_lines.append(f"Overall ATS Score: {round(float(overall_score), 2)}% | Tech Stack Coverage: {techstack_coverage}% | Skills Match: {round(float(skills_score), 2)}%")
+    summary = "\n".join(summary_lines)
+
     analysis = {
         "selected_role": selected_role or "",
         "role_detected": role_detected or "",
@@ -335,7 +350,8 @@ def analyze_resume(resume_text, jd_text, selected_role=None):
         "flaws": flaws if flaws else ["No major flaws detected."],
         "key_responsibilities": key_responsibilities,
         "recommended_keywords": recommended_keywords,
-        "detailed_sections": detailed_sections
+        "detailed_sections": detailed_sections,
+        "summary": summary
     }
 
     return analysis
